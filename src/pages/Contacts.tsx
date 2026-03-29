@@ -12,7 +12,7 @@ const fadeUp = {
 const contacts = [
   { icon: Phone, label: "Телефон", value: "+7 (963) 447-66-49", href: "tel:+79634476649" },
   { icon: Mail, label: "Email", value: "finsvod@inbox.ru", href: "mailto:finsvod@inbox.ru" },
-  { icon: MessageCircle, label: "Telegram", value: "@finsvod", href: "https://t.me/finsvod" },
+  { icon: MessageCircle, label: "Telegram", value: "@finnsvod", href: "https://t.me/finnsvod" },
   { icon: MapPin, label: "Адрес", value: "г. Екатеринбург", href: "#" },
 ];
 
