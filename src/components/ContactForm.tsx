@@ -1,15 +1,49 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send } from "lucide-react";
+import { Send, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const ContactForm = () => {
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Заявка отправлена! Мы свяжемся с вами в течение часа.");
-    setForm({ name: "", phone: "", message: "" });
+    setLoading(true);
+
+    try {
+      // Save to database
+      const { error: dbError } = await supabase
+        .from('contact_submissions')
+        .insert({
+          name: form.name.trim(),
+          phone: form.phone.trim(),
+          message: form.message.trim() || null,
+        });
+
+      if (dbError) {
+        console.error('DB error:', dbError);
+        throw new Error('Ошибка сохранения');
+      }
+
+      // Send notifications (Telegram + email)
+      await supabase.functions.invoke('notify-contact', {
+        body: {
+          name: form.name.trim(),
+          phone: form.phone.trim(),
+          message: form.message.trim(),
+        },
+      });
+
+      toast.success("Заявка отправлена! Мы свяжемся с вами в течение часа.");
+      setForm({ name: "", phone: "", message: "" });
+    } catch (err) {
+      console.error('Submit error:', err);
+      toast.error("Ошибка при отправке. Попробуйте ещё раз.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -45,8 +79,9 @@ const ContactForm = () => {
           rows={3}
           className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring text-sm resize-none"
         />
-        <button type="submit" className="btn-primary gap-2 w-full">
-          Отправить <Send size={16} />
+        <button type="submit" disabled={loading} className="btn-primary gap-2 w-full disabled:opacity-50">
+          {loading ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
+          {loading ? "Отправка..." : "Отправить"}
         </button>
       </div>
     </motion.form>
