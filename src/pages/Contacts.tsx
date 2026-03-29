@@ -10,10 +10,10 @@ const fadeUp = {
 };
 
 const contacts = [
-  { icon: Phone, label: "Телефон", value: "+7 (999) 123-45-67", href: "tel:+79991234567" },
-  { icon: Mail, label: "Email", value: "info@finsvod.ru", href: "mailto:info@finsvod.ru" },
+  { icon: Phone, label: "Телефон", value: "+7 (963) 447-66-49", href: "tel:+79634476649" },
+  { icon: Mail, label: "Email", value: "finsvod@inbox.ru", href: "mailto:finsvod@inbox.ru" },
   { icon: MessageCircle, label: "Telegram", value: "@finsvod", href: "https://t.me/finsvod" },
-  { icon: MapPin, label: "Адрес", value: "Москва, удалённая работа по всей РФ", href: "#" },
+  { icon: MapPin, label: "Адрес", value: "г. Екатеринбург", href: "#" },
 ];
 
 const Contacts = () => (
