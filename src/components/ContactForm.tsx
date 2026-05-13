@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
 const ContactForm = () => {
-  const [form, setForm] = useState({ name: "", phone: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -19,6 +19,7 @@ const ContactForm = () => {
         .insert({
           name: form.name.trim(),
           phone: form.phone.trim(),
+          email: form.email.trim() || null,
           message: form.message.trim() || null,
         });
 
@@ -32,12 +33,13 @@ const ContactForm = () => {
         body: {
           name: form.name.trim(),
           phone: form.phone.trim(),
+          email: form.email.trim(),
           message: form.message.trim(),
         },
       });
 
       toast.success("Заявка отправлена! Мы свяжемся с вами в течение часа.");
-      setForm({ name: "", phone: "", message: "" });
+      setForm({ name: "", phone: "", email: "", message: "" });
     } catch (err) {
       console.error('Submit error:', err);
       toast.error("Ошибка при отправке. Попробуйте ещё раз.");
@@ -70,6 +72,13 @@ const ContactForm = () => {
           value={form.phone}
           onChange={(e) => setForm({ ...form, phone: e.target.value })}
           required
+          className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring text-sm"
+        />
+        <input
+          type="email"
+          placeholder="Email (необязательно)"
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
           className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring text-sm"
         />
         <textarea
