@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import CTASection from "@/components/CTASection";
 import FAQ from "@/components/FAQ";
+import MagneticButton from "@/components/MagneticButton";
 
 const fadeUp = {
   initial: { opacity: 0, y: 32 },
@@ -150,12 +151,16 @@ const Index = () => (
               transition={{ duration: 0.6, delay: 0.55 }}
               className="flex flex-col sm:flex-row gap-4 mb-14"
             >
-              <Link to="/contacts" className="btn-primary gap-2">
-                Бесплатная консультация <ArrowRight size={18} />
-              </Link>
-              <Link to="/pricing" className="btn-secondary">
-                Рассчитать стоимость
-              </Link>
+              <MagneticButton>
+                <Link to="/contacts" className="btn-primary gap-2">
+                  Бесплатная консультация <ArrowRight size={18} />
+                </Link>
+              </MagneticButton>
+              <MagneticButton strength={0.2}>
+                <Link to="/pricing" className="btn-secondary">
+                  Рассчитать стоимость
+                </Link>
+              </MagneticButton>
             </motion.div>
 
             <motion.div

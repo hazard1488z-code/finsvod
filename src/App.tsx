@@ -5,6 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SmoothScroll from "@/components/SmoothScroll";
+import CustomCursor from "@/components/CustomCursor";
 import Index from "./pages/Index";
 import Marketplaces from "./pages/Marketplaces";
 import Accounting from "./pages/Accounting";
@@ -21,6 +23,8 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <SmoothScroll />
+      <CustomCursor />
       <BrowserRouter>
         <Header />
         <Routes>
