@@ -50,6 +50,10 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          foreground: "hsl(var(--gold-foreground))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -68,25 +72,53 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-24px)" },
+        },
+        "float-slow": {
+          "0%, 100%": { transform: "translateY(0px) scale(1)" },
+          "50%": { transform: "translateY(-32px) scale(1.04)" },
+        },
+        "float-reverse": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(20px)" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { opacity: "0.15" },
+          "50%": { opacity: "0.4" },
+        },
+        "gradient-shift": {
+          "0%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
+        },
+        "spin-slow": {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
+        shimmer: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        float: "float 7s ease-in-out infinite",
+        "float-slow": "float-slow 10s ease-in-out infinite",
+        "float-reverse": "float-reverse 8s ease-in-out infinite",
+        "pulse-glow": "pulse-glow 5s ease-in-out infinite",
+        "gradient-shift": "gradient-shift 8s ease infinite",
+        "spin-slow": "spin-slow 30s linear infinite",
+        shimmer: "shimmer 2.5s ease-in-out infinite",
       },
     },
   },
