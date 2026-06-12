@@ -411,7 +411,7 @@ const Index = () => (
               Бесплатный аудит за 1 день <ArrowRight size={18} />
             </Link>
             <a
-              href="https://t.me/finsvod"
+              href="https://t.me/urteam_k"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary gap-2"

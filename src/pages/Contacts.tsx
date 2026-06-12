@@ -12,7 +12,7 @@ const fadeUp = {
 const contacts = [
   { icon: Phone, label: "Телефон", value: "+7 (963) 447-66-49", href: "tel:+79634476649" },
   { icon: Mail, label: "Email", value: "finsvod@inbox.ru", href: "mailto:finsvod@inbox.ru" },
-  { icon: MessageCircle, label: "Telegram", value: "@finnsvod", href: "https://t.me/finnsvod" },
+  { icon: MessageCircle, label: "Telegram", value: "@urteam_k", href: "https://t.me/urteam_k" },
   { icon: MapPin, label: "Адрес", value: "г. Екатеринбург", href: "#" },
 ];
 
@@ -58,7 +58,7 @@ const Contacts = () => (
                 <h3 className="heading-card mb-3">Быстрая связь</h3>
                 <p className="text-muted-foreground mb-6">Напишите нам в мессенджер — ответим за 15 минут</p>
                 <div className="flex gap-4">
-                  <a href="https://t.me/" target="_blank" rel="noopener noreferrer" className="btn-primary text-sm py-3 px-6">
+                  <a href="https://t.me/urteam_k" target="_blank" rel="noopener noreferrer" className="btn-primary text-sm py-3 px-6">
                     Telegram
                   </a>
                   <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="btn-secondary text-sm py-3 px-6">

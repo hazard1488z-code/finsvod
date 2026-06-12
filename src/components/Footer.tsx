@@ -15,7 +15,7 @@ const Footer = () => (
           </p>
           <div className="flex gap-3">
             <a
-              href="https://t.me/finsvod"
+              href="https://t.me/urteam_k"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-border text-muted-foreground hover:text-primary hover:border-primary/40 transition-all duration-200 text-sm font-medium"
