@@ -24,7 +24,7 @@ const Footer = () => (
               Telegram
             </a>
             <a
-              href="https://wa.me/"
+              href="https://wa.me/79634476649"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-border text-muted-foreground hover:text-primary hover:border-primary/40 transition-all duration-200 text-sm font-medium"
